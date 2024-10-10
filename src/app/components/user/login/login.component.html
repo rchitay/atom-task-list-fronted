@@ -1,0 +1,16 @@
+<div class="login-container">
+  <div class="login-left">
+    <h2>Atom Task</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email" />
+      <div style="color: red;" *ngIf="email?.hasError('required') && email?.touched">
+        Mandatory.
+      </div>
+      <div style="color: red;" *ngIf="email?.hasError('email') && email?.touched">
+        Invalid Email
+      </div>
+      <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid">Sign In</button>
+    </form>
+  </div>
+</div>

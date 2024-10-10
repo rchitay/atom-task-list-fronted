@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Task</h1>
+<div mat-dialog-content style="width: 400px;">
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile><mat-label>Title:</mat-label></mat-grid-tile>
+    <mat-grid-tile><input matInput [(ngModel)]="task.title"></mat-grid-tile>
+    
+    <mat-grid-tile><mat-label>Description:</mat-label></mat-grid-tile>
+    <mat-grid-tile><input matInput [(ngModel)]="task.description"></mat-grid-tile>
+
+    <mat-grid-tile><mat-label>Status:</mat-label></mat-grid-tile>
+    <mat-grid-tile><select matNativeControl required [(ngModel)]="task.status">
+      <option value="Pending">Pending</option>
+      <option value="Completed">Completed</option>
+    </select></mat-grid-tile>
+  </mat-grid-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Close</button>
+  <button mat-button [mat-dialog-close]="task" cdkFocusInitial>Save</button>
+</div>

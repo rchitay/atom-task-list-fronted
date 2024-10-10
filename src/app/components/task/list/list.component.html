@@ -1,0 +1,31 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>RC</span>
+    <span class="example-spacer"></span>
+    <button (click)="closeSession()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>power_settings_new</mat-icon>
+    </button>
+</mat-toolbar>
+<div class="container">
+    <button mat-flat-button color="primary" (click)="open()"><mat-icon>add</mat-icon></button>
+</div>
+<div class="container">
+    <mat-card class="card" appearance="outlined" *ngFor="let task of list">
+        <mat-card-header>
+          <mat-card-title>{{task.title}}</mat-card-title>
+          <mat-card-subtitle>{{task.creationDate}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{task.status}}</p>
+            <p>{{task.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="example-button-row">
+                <button mat-flat-button (click)="edit(task.id)" color="primary"><mat-icon>edit</mat-icon></button>
+                <button mat-flat-button (click)="delete(task.id)" color="warn"><mat-icon>delete</mat-icon></button>
+            </div>
+        </mat-card-actions>
+      </mat-card>
+</div>

@@ -1,0 +1,21 @@
+.card {
+    min-width: 20%;
+    max-width: 20%;
+    border-radius: 10%;
+    margin: auto;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.container {
+    align-items: center;
+}
