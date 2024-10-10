@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { MatDialog } from '@angular/material/dialog';
+import { AlertComponentUser } from '../alert/alert.component';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent {
   loginForm: FormGroup;
   user: any;
-  constructor(private fb: FormBuilder, private service: UserService, private router: Router) {
+  constructor(private fb: FormBuilder, private service: UserService, private router: Router, public dialog: MatDialog) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
     });
@@ -31,6 +32,12 @@ export class LoginComponent {
             localStorage.setItem("idUser", res.id);
           }else {
             this.user = {email: this.loginForm.value.email};
+            this.service.saveUser(this.user).subscribe(
+              resSave => {
+                this.openAlert(this.user.email)
+                localStorage.setItem("idUser", resSave.id);
+              }
+            );
           }
         },
         err=>console.log(err)
@@ -38,5 +45,17 @@ export class LoginComponent {
     } else {
       console.log('email inválido');
     }
+  }
+
+  openAlert(email:string): void {
+    const dialogRef = this.dialog.open(AlertComponentUser, {
+      width: "250px",
+      height: "25%",
+      data: {email: email, continue: true},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.router.navigate(['/tasks']);
+    });
   }
 }

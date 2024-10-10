@@ -23,6 +23,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { DatePipe } from '@angular/common';
 import { FormComponent } from './components/task/form/form.component';
 import { AlertComponent } from './components/task/alert/alert.component';
+import { AlertComponentUser } from './components/user/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AlertComponent } from './components/task/alert/alert.component';
     LoginComponent,
     ListComponent,
     FormComponent,
-    AlertComponent
+    AlertComponent,
+    AlertComponentUser
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,7 @@ import { AlertComponent } from './components/task/alert/alert.component';
     useValue: {}
   }, MatDialog],
   entryComponents: [
-    FormComponent, AlertComponent
+    FormComponent, AlertComponent, AlertComponentUser
   ],
   bootstrap: [AppComponent]
 })

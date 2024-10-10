@@ -8,7 +8,7 @@
         <mat-icon>power_settings_new</mat-icon>
     </button>
 </mat-toolbar>
-<div class="container">
+<div>
     <button mat-flat-button color="primary" (click)="open()"><mat-icon>add</mat-icon></button>
 </div>
 <div class="container">
@@ -22,9 +22,9 @@
             <p>{{task.description}}</p>
         </mat-card-content>
         <mat-card-actions>
-            <div class="example-button-row">
-                <button mat-flat-button (click)="edit(task.id)" color="primary"><mat-icon>edit</mat-icon></button>
-                <button mat-flat-button (click)="delete(task.id)" color="warn"><mat-icon>delete</mat-icon></button>
+            <div class="button-row">
+                <button class="button-item" mat-flat-button (click)="edit(task.id)" color="primary"><mat-icon>edit</mat-icon></button>
+                <button class="button-item" mat-flat-button (click)="delete(task.id)" color="warn"><mat-icon>delete</mat-icon></button>
             </div>
         </mat-card-actions>
       </mat-card>

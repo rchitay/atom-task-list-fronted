@@ -7,15 +7,41 @@
     vertical-align: middle
 }
 
-.example-button-row {
-    display: table-cell;
-    max-width: 600px;
-  }
+.button-row {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-start;
+}
+
+.button-item {
+    padding: 8px 16px;
+    min-width: auto;
+    margin: 0;
+}
 
 .example-spacer {
     flex: 1 1 auto;
 }
 
 .container {
-    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px;
+}
+  
+.card {
+    width: 300px;
+    margin: 10px;
+}
+
+div:first-of-type {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+}
+  
+button {
+    margin-right: 30px;
 }
