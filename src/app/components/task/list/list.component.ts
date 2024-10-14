@@ -46,8 +46,8 @@ export class ListComponent {
 
   open(): void {
     const dialogRef = this.dialog.open(FormComponent, {
-      width: "40%",
-      height: "60%",
+      width: "30%",
+      height: "50%",
       data: {title: "", description: "", status: ""},
     });
 
